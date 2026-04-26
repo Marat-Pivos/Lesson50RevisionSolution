@@ -6,3 +6,27 @@
 // вектора начиная с позиции a и заканчивая позицией b, включая данные позиции.
 // Дополнительно в функции необходимо предусмотреть механизм "защиты от дурака"
 // для работы с некорректными данными.
+#include "logic.h"
+
+// RAM - O(1)
+// CPU - O(N)
+void reverse(int array[], int size, int a, int b) {
+	if (a > b) {
+		int temp = a;
+		a = b;
+		b = temp;
+	}
+
+	if (size <= 0 || a < 0 || b >= size) {
+		return;
+	}
+
+
+	while (a < b) {
+		int temp = array[a];
+		array[a] = array[b];
+		array[b] = temp;
+		a++;
+		b--;
+	}
+}

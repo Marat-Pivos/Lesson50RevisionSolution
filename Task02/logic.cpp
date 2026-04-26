@@ -11,3 +11,23 @@
 // 
 // Далее необходимо разработать полноценный или тестовый проект для полной 
 // демонстрации работоспособности данной функции.
+#include "logic.h"
+
+int get_sum_of_average_elements(int array[]) {
+	int sum = 0;
+
+	for (int i = 0; i < DEF_SIZE; i++) {
+		sum += array[i];
+	}
+
+	double midnum = 1.0 * sum / DEF_SIZE;
+
+	for (int i = 0; i < DEF_SIZE; i++) {
+		if (abs(array[i]) < midnum) {
+			sum += array[i];
+		}
+	}
+	return sum;
+}
+// avg
+// abs(array[i]) < avg --> sum += array[i]
